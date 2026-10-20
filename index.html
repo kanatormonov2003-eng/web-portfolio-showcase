@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Portfolio Templates — лучшие портфолио-шаблоны с GitHub</title>
+<meta name="description" content="Подборка лучших open-source портфолио-шаблонов с GitHub: vCard, Simplefolio, DevPortfolio, AstroPaper. Скачивай и используй бесплатно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f14; --bg2:#12151c; --card:#161a23; --card2:#1b2029;
+  --text:#eef1f6; --muted:#8b93a5;
+  --accent:#64ffda; --accent2:#7c9CFF; --accent3:#ff79c6;
+  --line:#ffffff10;
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+section{padding:80px 0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.025em}
+h2{font-size:clamp(28px,4vw,42px);font-weight:800}
+.sub{color:var(--muted);max-width:640px;margin:14px auto 0;text-align:center}
+.center{text-align:center}
+.grad{background:linear-gradient(92deg,var(--accent),var(--accent2) 55%,var(--accent3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* header */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:#0d0f14cc;border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}
+.logo{font-weight:900;font-size:18px;letter-spacing:-.03em;display:flex;align-items:center;gap:9px}
+.logo .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.head .lang{display:flex;gap:6px;background:#ffffff0d;border:1px solid var(--line);border-radius:99px;padding:4px}
+.head .lang button{background:none;border:0;color:var(--muted);font:600 13px inherit;padding:6px 14px;border-radius:99px;cursor:pointer;transition:.2s}
+.head .lang button.on{background:var(--accent);color:#0b0e13}
+.head .lang button:not(.on):hover{color:var(--text)}
+@media(max-width:640px){.head .logo span.full{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:80px 0 90px}
+.hero .glow{position:absolute;inset:-200px;overflow:hidden;pointer-events:none;
+  background:radial-gradient(600px 320px at 18% 0%,#64ffda1f,transparent 60%),
+             radial-gradient(560px 300px at 82% 8%,#7c9cff1f,transparent 60%),
+             radial-gradient(560px 320px at 50% 105%,#ff79c61c,transparent 60%)}
+.hero-grid{position:relative;text-align:center;max-width:860px;margin:0 auto}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#ffffff0d;border:1px solid var(--line);padding:8px 16px;border-radius:99px;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:24px}
+.pill b{color:var(--accent)}
+.hero h1{font-size:clamp(34px,6vw,62px);font-weight:900;letter-spacing:-.04em;margin-bottom:20px}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:620px;margin:0 auto 30px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:13px;font-weight:700;font-size:15px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#0b0e13;box-shadow:0 8px 26px #64ffda2e}
+.btn-primary:hover{box-shadow:0 12px 34px #64ffda4d}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:#ffffff36;background:#ffffff0a}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:56px}
+.stat{background:#ffffff08;border:1px solid var(--line);border-radius:16px;padding:20px}
+.stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--accent)}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:44px}
+.card{background:linear-gradient(165deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 54px #00000088;border-color:#64ffda30}
+.card .shot{position:relative;aspect-ratio:16/10;background:#0b0e13;overflow:hidden;border-bottom:1px solid var(--line)}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.card:hover .shot img{transform:scale(1.03)}
+.card .shot .open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0e13d9;opacity:0;transition:opacity .25s}
+.card:hover .shot .open{opacity:1}
+.card .shot .open span{border:1px solid var(--accent);color:var(--accent);padding:10px 20px;border-radius:99px;font-weight:700;font-size:14px}
+.card .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.card .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.card .tags span{font-size:11px;font-weight:700;letter-spacing:.03em;padding:4px 10px;border-radius:99px;background:#64ffda14;color:var(--accent)}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px;margin-bottom:14px;flex:1}
+.card .meta{display:flex;gap:14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-bottom:16px;flex-wrap:wrap}
+.card .meta b{color:var(--text);font-weight:700}
+.card .actions{display:flex;gap:9px}
+.card .actions .btn{flex:1;padding:12px 16px;font-size:14px}
+
+/* compare */
+.compare{background:var(--bg2)}
+.tablewrap{overflow-x:auto;margin-top:40px;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:14px 18px;text-align:left;font-size:14px;border-bottom:1px solid var(--line)}
+th{background:#ffffff08;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+td:not(:first-child){color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td .ok{color:var(--accent);font-weight:800}
+td .no{color:#5a6273}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:44px}
+.step{position:relative}
+.step .n{width:46px;height:46px;border-radius:14px;background:#64ffda16;border:1px solid #64ffda2e;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:var(--accent);margin-bottom:14px}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--muted)}
+.foot a:hover{color:var(--text)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:520px){section{padding:60px 0}.hero{padding:60px 0 70px}.hero-cta .btn{width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head">
+    <div class="logo"><span class="dot"></span>PORTFOLIO<span class="full">&nbsp;TEMPLATES</span></div>
+    <div class="lang">
+      <button id="btnRu" class="on">RU</button>
+      <button id="btnEn">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <span class="pill" data-i18n="pill">⚡ <b>4 лучших</b> open-source шаблона с GitHub</span>
+    <h1 data-i18n="h1">Лучшие <span class="grad">портфолио-шаблоны</span> с GitHub</h1>
+    <p class="lead" data-i18n="lead">
+      Подборка топовых бесплатных шаблонов портфолио из open-source: от минималистичного
+      сайта-визитки до Astro-блога. Все можно посмотреть вживую, скачать и использовать бесплатно.
+    </p>
+    <div class="hero-cta">
+      <a href="#templates" class="btn btn-primary" data-i18n="cta1">Смотреть шаблоны →</a>
+      <a href="#how" class="btn btn-ghost" data-i18n="cta2">Как использовать</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4</b><span data-i18n="st1">шаблона</span></div>
+      <div class="stat"><b>38k+</b><span data-i18n="st2">звёзд на GitHub</span></div>
+      <div class="stat"><b>MIT</b><span data-i18n="st3">свободные лицензии</span></div>
+      <div class="stat"><b>0 ₽</b><span data-i18n="st4">полностью бесплатно</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="templates">
+  <div class="wrap">
+    <h2 class="center" data-i18n="t_h2">Шаблоны</h2>
+    <p class="sub" data-i18n="t_sub">Каждый шаблон открывается вживую — посмотри, как он выглядит и работает на самом деле</p>
+
+    <div class="cards">
+
+      <!-- ============ vCARD ============ -->
+      <article class="card rv">
+        <div class="shot">
+          <img src="assets/shots/vcard.png" alt="vCard personal portfolio" loading="lazy">
+          <a class="open" href="templates/vcard/index.html" target="_blank" rel="noopener"><span data-i18n="live">Открыть вживую ↗</span></a>
+        </div>
+        <div class="body">
+          <div class="tags"><span>HTML/CSS/JS</span><span>8.1k★</span><span data-i18n="tag_noBuild">без сборки</span></div>
+          <h3>vCard — Personal Portfolio</h3>
+          <p data-i18n="d_vcard">Тёмная сайт-визитка с фото, услугами, отзывами и блогом. Чистый HTML — просто открывается в браузере, не нужна установка.</p>
+          <div class="meta"><div data-i18n="stack">Стек</div><b>HTML · CSS · JS</b></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="templates/vcard/index.html" target="_blank" rel="noopener" data-i18n="demo">Демо</a>
+            <a class="btn btn-ghost" href="https://github.com/codewithsadee/vcard-personal-portfolio" target="_blank" rel="noopener" data-i18n="source">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ SIMPLEFOLIO ============ -->
+      <article class="card rv">
+        <div class="shot">
+          <img src="assets/shots/simplefolio.png" alt="Simplefolio minimal portfolio" loading="lazy">
+          <a class="open" href="templates/simplefolio/dist/index.html" target="_blank" rel="noopener"><span data-i18n="live">Открыть вживую ↗</span></a>
+        </div>
+        <div class="body">
+          <div class="tags"><span>HTML/SCSS/JS</span><span>14.2k★</span><span>Webpack</span></div>
+          <h3>Simplefolio</h3>
+          <p data-i18n="d_simple">Минималистичное портфолио с большой шапкой, проектами и формой контактов. Сборка Webpack, легко кастомизируется.</p>
+          <div class="meta"><div data-i18n="stack">Стек</div><b>SCSS · Webpack · JS</b></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="templates/simplefolio/dist/index.html" target="_blank" rel="noopener" data-i18n="demo">Демо</a>
+            <a class="btn btn-ghost" href="https://github.com/cobiwave/simplefolio" target="_blank" rel="noopener" data-i18n="source">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ DEVPORTFOLIO ============ -->
+      <article class="card rv">
+        <div class="shot">
+          <img src="assets/shots/devportfolio.png" alt="DevPortfolio Astro template" loading="lazy">
+          <a class="open" href="templates/devportfolio/dist/index.html" target="_blank" rel="noopener"><span data-i18n="live">Открыть вживую ↗</span></a>
+        </div>
+        <div class="body">
+          <div class="tags"><span>Astro</span><span>5.0k★</span><span>Tailwind v4</span></div>
+          <h3>DevPortfolio</h3>
+          <p data-i18n="d_dev">Современный минимализм в моно-шрифте: проекты, опыт, образование. Весь контент — в одном конфиге, меняется за минуты. Tailwind CSS v4.</p>
+          <div class="meta"><div data-i18n="stack">Стек</div><b>Astro · Tailwind · TS</b></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="templates/devportfolio/dist/index.html" target="_blank" rel="noopener" data-i18n="demo">Демо</a>
+            <a class="btn btn-ghost" href="https://github.com/RyanFitzgerald/devportfolio" target="_blank" rel="noopener" data-i18n="source">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ ASTRO PAPER ============ -->
+      <article class="card rv">
+        <div class="shot">
+          <img src="assets/shots/astro-paper.png" alt="AstroPaper blog portfolio" loading="lazy">
+          <a class="open" href="templates/astro-paper/dist/index.html" target="_blank" rel="noopener"><span data-i18n="live">Открыть вживую ↗</span></a>
+        </div>
+        <div="body">
+          <div class="tags"><span>Astro</span><span>5.1k★</span><span>Blog</span></div>
+          <h3>AstroPaper</h3>
+          <p data-i18n="d_astro">Блог-портфолио с постами, тегами, поиском и архивом. Доступность и SEO из коробки, светлая/тёмная темы. Один из лучших Astro-шаблонов.</p>
+          <div class="meta"><div data-i18n="stack">Стек</div><b>Astro · Tailwind · MDX</b></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="templates/astro-paper/dist/index.html" target="_blank" rel="noopener" data-i18n="demo">Демо</a>
+            <a class="btn btn-ghost" href="https://github.com/satnaing/astro-paper" target="_blank" rel="noopener" data-i18n="source">GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE ============ -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <h2 class="center" data-i18n="c_h2">Какой выбрать?</h2>
+    <p class="sub" data-i18n="c_sub">Короткое сравнение, чтобы выбрать шаблон под свою задачу</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="c_t1">Шаблон</th>
+            <th data-i18n="c_t2">Сложность</th>
+            <th data-i18n="c_t3">Подходит для</th>
+            <th data-i18n="c_t4">Нужна сборка</th>
+            <th data-i18n="c_t5">Лицензия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>vCard</b></td>
+            <td data-i18n="c_easy">Просто</td>
+            <td data-i18n="c_r_vcard">Сайт-визитка, быстрый старт</td>
+            <td><span class="no">—</span></td>
+            <td>MIT</td>
+          </tr>
+          <tr>
+            <td><b>Simplefolio</b></td>
+            <td data-i18n="c_med">Средне</td>
+            <td data-i18n="c_r_simple">Классическое портфолио разработчика</td>
+            <td><span class="ok">Webpack</span></td>
+            <td>MIT</td>
+          </tr>
+          <tr>
+            <td><b>DevPortfolio</b></td>
+            <td data-i18n="c_med">Средне</td>
+            <td data-i18n="c_r_dev">Резюме-сайт с проектами и опытом</td>
+            <td><span class="ok">Astro</span></td>
+            <td>MIT</td>
+          </tr>
+          <tr>
+            <td><b>AstroPaper</b></td>
+            <td data-i18n="c_hard">Сложнее</td>
+            <td data-i18n="c_r_astro">Блог + портфолио, регулярные посты</td>
+            <td><span class="ok">Astro</span></td>
+            <td>MIT</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW TO USE ============ -->
+<section id="how">
+  <div class="wrap">
+    <h2 class="center" data-i18n="h_h2">Как использовать</h2>
+    <p class="sub" data-i18n="h_sub">Три шага от просмотра до своего сайта</p>
+    <div class="steps">
+      <div class="step rv"><div class="n">1</div><h3 data-i18n="h_s1t">Выбери шаблон</h3><p data-i18n="h_s1d">Открой демо любого шаблона и посмотри, как он выглядит вживую. Все шаблоны бесплатны.</p></div>
+      <div class="step rv"><div class="n">2</div><h3 data-i18n="h_s2t">Скачай с GitHub</h3><p data-i18n="h_s2d">Нажми «GitHub» на карточке — попадёшь на оригинальный репозиторий. Клонируй или скачай ZIP.</p></div>
+      <div class="step rv"><div class="n">3</div><h3 data-i18n="h_s3t">Замени контент</h3><p data-i18n="h_s3d">Подставь своё имя, проекты и ссылки. Для vCard — прямо в HTML, для Astro — в одном конфиге.</p></div>
+    </div>
+    <p class="center" style="margin-top:36px">
+      <a class="btn btn-primary" href="https://github.com/kanatormonov2003-eng/web-portfolio-showcase" target="_blank" rel="noopener" data-i18n="h_repo">Репозиторий этой подборки ↗</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div data-i18n="f_copy">Подборка open-source портфолио-шаблонов с GitHub ·MIT</div>
+    <div><a href="https://github.com/kanatormonov2003-eng" target="_blank" rel="noopener">GitHub ↗</a></div>
+  </div>
+</footer>
+
+<script>
+/* ============ i18n (RU/EN) ============ */
+var I18N = {
+  ru: {
+    pill: '⚡ <b>4 лучших</b> open-source шаблона с GitHub',
+    h1: 'Лучшие <span class="grad">портфолио-шаблоны</span> с GitHub',
+    lead: 'Подборка топовых бесплатных шаблонов портфолио из open-source: от минималистичного сайта-визитки до Astro-блога. Все можно посмотреть вживую, скачать и использовать бесплатно.',
+    cta1: 'Смотреть шаблоны →', cta2: 'Как использовать',
+    st1: 'шаблона', st2: 'звёзд на GitHub', st3: 'свободные лицензии', st4: 'полностью бесплатно',
+    t_h2: 'Шаблоны', t_sub: 'Каждый шаблон открывается вживую — посмотри, как он выглядит и работает на самом деле',
+    live: 'Открыть вживую ↗', demo: 'Демо', source: 'GitHub ↗', stack: 'Стек', tag_noBuild: 'без сборки',
+    d_vcard: 'Тёмная сайт-визитка с фото, услугами, отзывами и блогом. Чистый HTML — просто открывается в браузере, не нужна установка.',
+    d_simple: 'Минималистичное портфолио с большой шапкой, проектами и формой контактов. Сборка Webpack, легко кастомизируется.',
+    d_dev: 'Современный минимализм в моно-шрифте: проекты, опыт, образование. Весь контент — в одном конфиге, меняется за минуты. Tailwind CSS v4.',
+    d_astro: 'Блог-портфолио с постами, тегами, поиском и архивом. Доступность и SEO из коробки, светлая/тёмная темы. Один из лучших Astro-шаблонов.',
+    c_h2: 'Какой выбрать?', c_sub: 'Короткое сравнение, чтобы выбрать шаблон под свою задачу',
+    c_t1: 'Шаблон', c_t2: 'Сложность', c_t3: 'Подходит для', c_t4: 'Нужна сборка', c_t5: 'Лицензия',
+    c_easy: 'Просто', c_med: 'Средне', c_hard: 'Сложнее',
+    c_r_vcard: 'Сайт-визитка, быстрый старт', c_r_simple: 'Классическое портфолио разработчика',
+    c_r_dev: 'Резюме-сайт с проектами и опытом', c_r_astro: 'Блог + портфолио, регулярные посты',
+    h_h2: 'Как использовать', h_sub: 'Три шага от просмотра до своего сайта',
+    h_s1t: 'Выбери шаблон', h_s1d: 'Открой демо любого шаблона и посмотри, как он выглядит вживую. Все шаблоны бесплатны.',
+    h_s2t: 'Скачай с GitHub', h_s2d: 'Нажми «GitHub» на карточке — попадёшь на оригинальный репозиторий. Клонируй или скачай ZIP.',
+    h_s3t: 'Замени контент', h_s3d: 'Подставь своё имя, проекты и ссылки. Для vCard — прямо в HTML, для Astro — в одном конфиге.',
+    h_repo: 'Репозиторий этой подборки ↗',
+    f_copy: 'Подборка open-source портфолио-шаблонов с GitHub · MIT'
+  },
+  en: {
+    pill: '⚡ <b>4 best</b> open-source templates from GitHub',
+    h1: 'Best <span class="grad">portfolio templates</span> on GitHub',
+    lead: 'A handpicked collection of top free open-source portfolio templates: from a minimal business card site to an Astro blog. Preview live, download and use for free.',
+    cta1: 'Browse templates →', cta2: 'How to use',
+    st1: 'templates', st2: 'GitHub stars', st3: 'permissive licenses', st4: 'totally free',
+    t_h2: 'Templates', t_sub: 'Every template opens live — see exactly how it looks and works',
+    live: 'Open live ↗', demo: 'Demo', source: 'GitHub ↗', stack: 'Stack', tag_noBuild: 'no build',
+    d_vcard: 'Dark business-card site with photo, services, testimonials and a blog. Pure HTML — just opens in a browser, no setup needed.',
+    d_simple: 'Minimalist portfolio with a bold hero, projects and a contact form. Webpack build, easy to customize.',
+    d_dev: 'Modern minimalism in a mono font: projects, experience, education. All content lives in a single config file. Tailwind CSS v4.',
+    d_astro: 'Blog-portfolio with posts, tags, search and archive. Accessibility and SEO out of the box, light/dark themes. One of the best Astro templates.',
+    c_h2: 'Which one to pick?', c_sub: 'A quick comparison to choose the right template for your needs',
+    c_t1: 'Template', c_t2: 'Complexity', c_t3: 'Best for', c_t4: 'Build step', c_t5: 'License',
+    c_easy: 'Easy', c_med: 'Medium', c_hard: 'Harder',
+    c_r_vcard: 'Business card site, quick start', c_r_simple: 'Classic developer portfolio',
+    c_r_dev: 'Resume site with projects & experience', c_r_astro: 'Blog + portfolio, regular posts',
+    h_h2: 'How to use', h_sub: 'Three steps from browsing to your own site',
+    h_s1t: 'Pick a template', h_s1d: 'Open any template demo and see it live. All templates are free.',
+    h_s2t: 'Get it from GitHub', h_s2d: 'Click “GitHub” on a card to open the original repository. Clone or download a ZIP.',
+    h_s3t: 'Replace the content', h_s3d: 'Put in your name, projects and links. For vCard — right in the HTML; for Astro — in one config file.',
+    h_repo: 'Repository of this collection ↗',
+    f_copy: 'A collection of open-source portfolio templates from GitHub · MIT'
+  }
+};
+
+function applyLang(lang){
+  var dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if (dict[key]) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = lang;
+  document.getElementById('btnRu').classList.toggle('on', lang === 'ru');
+  document.getElementById('btnEn').classList.toggle('on', lang === 'en');
+  try { localStorage.setItem('portfolio-lang', lang); } catch(e) {}
+}
+document.getElementById('btnRu').addEventListener('click', function(){ applyLang('ru'); });
+document.getElementById('btnEn').addEventListener('click', function(){ applyLang('en'); });
+var saved = 'ru';
+try { saved = localStorage.getItem('portfolio-lang') || 'ru'; } catch(e) {}
+applyLang(saved);
+
+/* ============ reveal on scroll ============ */
+if ('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: .12 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+}
+
+/* ============ year ============ */
+</script>
+</body>
+</html>
