@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# dist нужен для витрины
+!dist/
+!dist/**

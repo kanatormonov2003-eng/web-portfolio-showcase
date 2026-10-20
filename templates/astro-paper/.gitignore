@@ -31,3 +31,7 @@ public/pagefind
 
 # docker compose
 compose.override.yaml
+
+# dist нужен для витрины
+!dist/
+!dist/**
